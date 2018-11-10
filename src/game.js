@@ -72,14 +72,22 @@ export default class Game {
     this.backBufferCtx.fillStyle = "white";
     this.backBufferCtx.fillRect(0,0,this.WIDTH, this.HEIGHT);
 
+    var x = this.entities[0].x;
+    var y = this.entities[0].y;
+
+    var left = x - this.WIDTH ///2 < this.WIDTH/2 ? 0 : x - this.WIDTH/2 > this.WIDTH/2 ? 0 : x - this.WIDTH/2;
+    var right = this.WIDTH + left;//x + this.WIDTH/2 > this.WIDTH ? this.WIDTH : x + this.WIDTH/2;
+    var top = y - this.HEIGHT/2 //< 0 ? 0 : y - this.HEIGHT/2;
+    var bottom = y + this.HEIGHT/2 //> this.HEIGHT ? this.HEIGHT : y + this.HEIGHT/2;
+
     var count = 0;
-    for (var i = 0; i < this.tiles_height*this.tile_size; i+= this.tile_size) {
-      for (var j = 0; j < this.tiles_width*this.tile_size; j+= this.tile_size) {
+    for (var j = 0; j < this.tiles_height*this.tile_size; j+= this.tile_size) {
+      for (var i = 0; i < this.tiles_width*this.tile_size; i+= this.tile_size) {
         var index = this.tile_data[count];
         var rowIndex = index > 8 ?  this.tile_size : 0;
         var colIndex = ((index % 8) - 1) * this.tile_size;
         this.backBufferCtx.drawImage(this.tileset, colIndex, rowIndex, this.tile_size, this.tile_size,
-                                      j, i, this.tile_size, this.tile_size);
+                                      i-(x-256), j-(y-256), this.tile_size, this.tile_size);
         count++;
       }
     }

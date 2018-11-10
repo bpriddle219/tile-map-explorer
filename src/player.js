@@ -9,7 +9,7 @@ export default class Player {
     * @param {float} x - the player's x position
     * @param {float} y - the player's y position
     */
-  constructor(x, y, dir, moving) {
+  constructor(x, y, dir, moving, h, w) {
     this.x = x;
     this.y = y;
     this.dir = dir;
@@ -18,6 +18,8 @@ export default class Player {
     this.tileset.src = "tileset.png";
     this.frameCount = 0;
     this.switch = 0;
+    this.HEIGHT = h;
+    this.WIDTH = w;
 
     var a = [];
     Map.layers[1].objects.forEach(function(obj) {
@@ -127,14 +129,14 @@ export default class Player {
           }
 
           if (this.switch) {
-            context.drawImage(this.tileset, 32, 0, 32, 32, this.x, this.y, 32, 32);
+            context.drawImage(this.tileset, 32, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
           }
           else {
-            context.drawImage(this.tileset, 0, 0, 32, 32, this.x, this.y, 32, 32);
+            context.drawImage(this.tileset, 0, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
           }
         }
         else {
-          context.drawImage(this.tileset, 0, 0, 32, 32, this.x, this.y, 32, 32);
+          context.drawImage(this.tileset, 0, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
         }
         break;
       case 1:
@@ -144,14 +146,14 @@ export default class Player {
           }
 
           if (this.switch) {
-            context.drawImage(this.tileset, 96, 0, 32, 32, this.x, this.y, 32, 32);
+            context.drawImage(this.tileset, 96, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
           }
           else {
-            context.drawImage(this.tileset, 64, 0, 32, 32, this.x, this.y, 32, 32);
+            context.drawImage(this.tileset, 64, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
           }
         }
         else {
-          context.drawImage(this.tileset, 64, 0, 32, 32, this.x, this.y, 32, 32);
+          context.drawImage(this.tileset, 64, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
         }
         break;
       case 2:
@@ -161,14 +163,14 @@ export default class Player {
           }
 
           if (this.switch) {
-            context.drawImage(this.tileset, 160, 0, 32, 32, this.x, this.y, 32, 32);
+            context.drawImage(this.tileset, 160, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
           }
           else {
-            context.drawImage(this.tileset, 128, 0, 32, 32, this.x, this.y, 32, 32);
+            context.drawImage(this.tileset, 128, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
           }
         }
         else {
-          context.drawImage(this.tileset, 128, 0, 32, 32, this.x, this.y, 32, 32);
+          context.drawImage(this.tileset, 128, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
         }
         break;
       case 3:
@@ -178,14 +180,14 @@ export default class Player {
           }
 
           if (this.switch) {
-            context.drawImage(this.tileset, 224, 0, 32, 32, this.x, this.y, 32, 32);
+            context.drawImage(this.tileset, 224, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
           }
           else {
-            context.drawImage(this.tileset, 192, 0, 32, 32, this.x, this.y, 32, 32);
+            context.drawImage(this.tileset, 192, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
           }
         }
         else {
-          context.drawImage(this.tileset, 192, 0, 32, 32, this.x, this.y, 32, 32);
+          context.drawImage(this.tileset, 192, 0, 32, 32, this.WIDTH/2, this.HEIGHT/2, 32, 32);
         }
         break;
     }
